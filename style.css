@@ -1355,3 +1355,392 @@ footer{
   }
 }
 
+/*----------------ourstory page---------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff8f0;
+  color: #4a2c21;
+}
+
+.our-story {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Base section styling */
+.section {
+  position: relative;
+  border-radius: 20px;
+  color: white;
+  padding: 5rem 3rem;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(74, 44, 33, 0.15);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  text-shadow: 0 0 6px rgba(74, 44, 33, 0.6);
+}
+
+.section h1, 
+.section h2 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section p, blockquote {
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 6px solid #f9a825;
+  padding-left: 1rem;
+}
+
+cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #f9a825;
+}
+
+/* Button styling for CTA */
+.cta-section button {
+  background: #f9a825;
+  border: none;
+  color: #4a2c21;
+  padding: 0.9rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 2rem;
+  box-shadow: 0 4px 10px rgba(249, 168, 37, 0.5);
+}
+
+.cta-section button:hover {
+  background: #fbc02d;
+  box-shadow: 0 6px 15px rgba(251, 192, 45, 0.7);
+}
+
+/* Background images and overlays with ice cream vibes */
+.hero-banner {
+  background: url('https://images.unsplash.com/photo-1505253210343-9d95a7d681c0?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+}
+
+.timeline-section {
+  background: url('https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+}
+
+.founder-quote {
+  background: linear-gradient(135deg, #f9a825, #f57f17);
+}
+
+.bts-gallery {
+  background: url('https://images.unsplash.com/photo-1590080877777-dc4a14fc93f8?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+}
+
+
+.awards {
+  background: linear-gradient(120deg, #ff6f91, #ff9671);
+}
+
+.ethos {
+  background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+}
+
+.testimonials {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  color: #4a2c21;
+  text-shadow: none;
+}
+
+.fun-facts {
+  background: url('https://images.unsplash.com/photo-1532634726-1c112d101be6?auto=format&fit=crop&w=1350&q=80') center center/cover no-repeat;
+}
+
+
+
+.cta-section {
+  background: linear-gradient(135deg, #ffeb3b, #fbc02d);
+  color: #4a2c21;
+  text-shadow: none;
+}
+
+/* Overlay for backgrounds to improve readability */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 44, 33, 0.45);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* Remove overlay on testimonial and cta sections for light backgrounds */
+.testimonials::before,
+.cta-section::before {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Different delays for each section */
+.section:nth-child(1) { animation-delay: 0.15s; }
+.section:nth-child(2) { animation-delay: 0.3s; }
+.section:nth-child(3) { animation-delay: 0.45s; }
+.section:nth-child(4) { animation-delay: 0.6s; }
+.section:nth-child(5) { animation-delay: 0.75s; }
+.section:nth-child(6) { animation-delay: 0.9s; }
+.section:nth-child(7) { animation-delay: 1.05s; }
+.section:nth-child(8) { animation-delay: 1.2s; }
+.section:nth-child(9) { animation-delay: 1.35s; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 2rem;
+  }
+  .section h1, .section h2 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+/*--------------------contact page------------*/
+
+/* Container and Section */
+#contact {
+  background: #fff8f9; /* Light pinkish white */
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4a2c40;
+  min-height: 100vh;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Headings */
+#contact h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+#contact .subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #a0526d;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Forms Styling */
+form {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(160, 82, 109, 0.15);
+  max-width: 100%;
+  animation: scaleIn 1s ease forwards;
+}
+
+form:nth-of-type(2) {
+  animation-delay: 0.3s; /* Delay feedback form animation */
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0 20px 0;
+  border: 1.8px solid #dcb6ca;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff7eb9;
+  outline: none;
+}
+
+/* Select Styling */
+select {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23a0526d" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 15px center;
+  background-size: 15px 15px;
+  cursor: pointer;
+}
+
+/* Textarea Styling */
+textarea {
+  resize: vertical;
+}
+
+/* Buttons */
+button {
+  background: #ff7eb9;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255, 126, 185, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background: #ff4d94;
+  box-shadow: 0 8px 20px rgba(255, 77, 148, 0.8);
+}
+
+/* Info Blocks */
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  animation: slideUp 1s ease forwards;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.info div {
+  background: #fff0f4;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(255, 126, 185, 0.15);
+  flex: 1 1 200px;
+  min-width: 200px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.info h3 {
+  margin-bottom: 8px;
+  color: #a0526d;
+  font-weight: 700;
+}
+
+.info a {
+  color: #ff7eb9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.info a:hover {
+  text-decoration: underline;
+}
+
+/* Footer text */
+footer {
+  margin-top: 50px;
+  font-style: italic;
+  color: #b07a99;
+  font-size: 1rem;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes scaleIn {
+  0% {opacity: 0; transform: scale(0.8);}
+  100% {opacity: 1; transform: scale(1);}
+}
+
+@keyframes slideUp {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .info {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #contact h1 {
+    font-size: 2.5rem;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact h1 {
+    font-size: 2rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+
