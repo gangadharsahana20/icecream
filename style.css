@@ -140,6 +140,7 @@ color: var(--text-color);
 font-family: "Bebas Neue", sans-serif;
 }
 
+
 .hero-center-image{
     position: absolute;
     left: 44%;
@@ -174,6 +175,65 @@ h2{
     font-family: "Bebas Neue", sans-serif;
 }
 
+
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon,
+.close-icon {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  display: none;
+}
+
+/* Show menu icon only by default */
+.menu-icon {
+  display: inline-block;
+}
+
+.close-icon {
+  display: none;
+}
+
+/* Responsive nav styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .navlist {
+    position: fixed;
+    top: 13vh;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navlist.active {
+    right: 0;
+  }
+
+  .menu-toggle.open .menu-icon {
+    display: none;
+  }
+
+  .menu-toggle.open .close-icon {
+    display: inline-block;
+  }
+}
+/*---------------card section-------------*/
+
 .card-container{
     gap: 4rem;
     height: 80vh;
@@ -187,6 +247,8 @@ h2{
     border-radius: 1.5rem;
     position: relative;
 }
+
+
 
 .card-image{
     width: 20rem;
@@ -215,6 +277,78 @@ span{
     font-size: .95rem;
     padding: 1rem 0 2rem 0;
 }
+
+
+@media (max-width: 768px) {
+  /* --- Card Layout Adjustments --- */
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 2.5rem; /* tighter spacing */
+  }
+
+  .card {
+    width: 90%;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+  }
+
+  .card-image {
+    position: static;
+    transform: none;
+    width: 10rem;
+    height: auto;
+    margin-bottom: 1rem;
+    object-fit: contain;
+  }
+
+  /* --- Centered Content --- */
+  .card .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* --- Grey block around p, span, and icon --- */
+  .card .content p {
+    background: var(--inner-bg-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card .content p span {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+
+  .card .content p i {
+    font-size: 1.2rem;
+    color: var(--text-color);
+  }
+
+  /* Optional: tweak .dark-para */
+  .dark-para {
+    font-size: 0.95rem;
+    padding: 0.5rem 0 1.5rem;
+    color: var(--text-color);
+  }
+}
+
+/*-----------------------production section--------------*/
+
 
 .production{
     background: var(--text-color);
@@ -269,6 +403,40 @@ span{
     left: 0%;
     z-index: 3;
 }
+
+@media (max-width: 768px) {
+  .production {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .production h2,
+  .production p,
+  .btn {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .btn {
+    width: fit-content;
+    padding: 0.4rem 1rem;       /* Smaller padding */
+    font-size: 0.9rem;          /* Smaller font size */
+  }
+
+  .production-left-image,
+  .production-right-image {
+    display: none;
+  }
+}
+
+
+
+/*------------------healthy section------------------*/
 
 .healthy-section{
     background: var(--inner-bg-color);
@@ -1674,7 +1842,7 @@ button:hover {
 footer {
   margin-top: 50px;
   font-style: italic;
-  color: #b07a99;
+  color: #e4439e;
   font-size: 1rem;
   animation: fadeIn 1.5s ease forwards;
 }

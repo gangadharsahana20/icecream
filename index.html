@@ -36,6 +36,11 @@
         </li>
     </ul>
 
+          <div class="menu-toggle">
+             <i class="fas fa-bars menu-icon"></i>
+             <i class="fas fa-times close-icon"></i>
+          </div>
+
     <div class="nav-icons flex">
         
             <a href="#" class="icon">
@@ -202,6 +207,36 @@
   // Show all cards on load
   document.querySelectorAll('.flavour-card').forEach(card => card.classList.add('show'));
 </script>
+
+
+
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navList = document.querySelector(".navlist");
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+
+  // Initially show only menu icon
+  closeIcon.style.display = "none";
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navList.classList.toggle("active");
+
+    if (isOpen) {
+      // Show nav list and close icon
+      menuToggle.classList.add("open");
+      closeIcon.style.display = "inline-block";
+      menuIcon.style.display = "none";
+    } else {
+      // Hide nav list and show menu icon again
+      menuToggle.classList.remove("open");
+      closeIcon.style.display = "none";
+      menuIcon.style.display = "inline-block";
+    }
+  });
+</script>
+
+
 
 
 
