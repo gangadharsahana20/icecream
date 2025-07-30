@@ -120,7 +120,19 @@ img{
     background-repeat: no-repeat;
     background-size: 57%;
     position: relative;
+    animation: animateAlmonds 4s ease-in-out infinite; /* Faster animation */
 }
+
+@keyframes animateAlmonds {
+  0%, 100% {
+    background-position: center 0;
+  }
+  50% {
+    background-position: center 20px; /* Move almonds slightly downward */
+  }
+}
+
+
 
 .inner-hero{
     background: var(--inner-bg-color);
@@ -368,19 +380,68 @@ span{
 }
 
 
-.btn{
-    background: var(--btn-color);
-    padding: 1rem 2.5rem;
-    color: var(--text-color);
-    font-size: 1.1rem;
-    border: .1rem solid var(--btn-color);
-    border-radius: 100vw;
+.btn {
+  margin: 100px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
 }
 
-.btn:hover {
-    background: transparent;
-    color: var(--btn-color);
-    cursor: pointer;
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
 }
 
 .light-para{
@@ -461,12 +522,22 @@ span{
     align-items: flex-end;
 }
 
-.commitment{
-    text-align: center;
-    background-image: url("images/leaves.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.commitment {
+  text-align: center;
+  background-image: url("images/leaves.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: animateLeaves 10s ease-in-out infinite;
+}
+
+@keyframes animateLeaves {
+  0%, 100% {
     background-position: center;
+  }
+  50% {
+    background-position: center 20px;
+  }
 }
 
 .commitment  .container img{
@@ -1039,6 +1110,7 @@ footer{
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  perspective: 1000px; /* ✅ Enables 3D depth */
 }
 
 .team-member {
@@ -1046,12 +1118,17 @@ footer{
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d; /* ✅ Needed for 3D */
+  backface-visibility: hidden;
 }
 
+
 .team-member:hover {
-  transform: translateY(-6px);
+  transform: rotateY(15deg) translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
+
 
 .team-member img {
   width: 100%;
@@ -1538,7 +1615,9 @@ body {
   max-width: 1100px;
   margin: auto;
   padding: 3rem 1.5rem;
+   perspective: 1000px;
 }
+
 
 /* Base section styling */
 .section {
@@ -1551,7 +1630,7 @@ body {
   box-shadow: 0 10px 30px rgba(74, 44, 33, 0.15);
   opacity: 0;
   transform: translateY(40px);
-  animation: fadeInUp 1s ease forwards;
+  animation: fadeInUp 1s ease forwards, float3D 6s ease-in-out infinite;
 }
 
 .section .content {
@@ -1672,11 +1751,18 @@ cite {
 
 /* Animations */
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95) rotateX(10deg);
+    filter: blur(8px);
+  }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: blur(0);
   }
 }
+
 
 /* Different delays for each section */
 .section:nth-child(1) { animation-delay: 0.15s; }
@@ -1699,6 +1785,15 @@ cite {
   }
 }
 
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0) rotateX(0);
+  }
+  50% {
+    transform: translateY(-6px) rotateX(2deg);
+  }
+}
+
 
 
 
@@ -1717,6 +1812,7 @@ cite {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  perspective: 1000px; /* 🔑 Enables 3D effect */
 }
 
 /* Headings */
@@ -1742,7 +1838,17 @@ form {
   box-shadow: 0 8px 20px rgba(160, 82, 109, 0.15);
   max-width: 100%;
   animation: scaleIn 1s ease forwards;
+
+  /* 3D animation */
+  transition: transform 1.2s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
+
+form:hover {
+  transform: rotateY(360deg);
+}
+
 
 form:nth-of-type(2) {
   animation-delay: 0.3s; /* Delay feedback form animation */
@@ -1820,7 +1926,14 @@ button:hover {
   flex: 1 1 200px;
   min-width: 200px;
   animation: fadeIn 1.2s ease forwards;
+  transition: transform 1.2s ease;
+  transform-style: preserve-3d;
 }
+
+.info div:hover {
+  transform: rotateY(360deg);
+}
+
 
 .info h3 {
   margin-bottom: 8px;
